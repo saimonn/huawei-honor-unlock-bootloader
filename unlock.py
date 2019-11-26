@@ -18,7 +18,10 @@ def tryUnlockBootloader(checksum):
     unlock      = False
     algoOEMcode = 1000000000000000 #base
     
+    logfile = open("toto.log","a")
     while(unlock == False):
+        logfile.write("trying unlock code "+str(algoOEMcode)+"\n")
+        print("trying unlock code "+str(algoOEMcode)+"\n")
         sdrout = str(os.system('fastboot oem unlock '+str(algoOEMcode)))
         sdrout = sdrout.split(' ')
         for i in sdrout:
